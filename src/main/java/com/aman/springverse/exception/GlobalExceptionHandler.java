@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ApiResponse<Void>> handleException(RuntimeException ex) {
-        return ApiResponse.badRequest(
+        return ApiResponse.internalServerError(
                 ex.getMessage() != null ? ex.getMessage() : "An error occurred"
         );
     }
