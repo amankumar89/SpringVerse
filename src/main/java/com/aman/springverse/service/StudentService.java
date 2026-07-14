@@ -1,25 +1,26 @@
 package com.aman.springverse.service;
 
 import com.aman.springverse.dto.*;
-import com.aman.springverse.dto.mapper.StudentMapper;
 import com.aman.springverse.entity.students.Student;
 import com.aman.springverse.exception.DuplicateResourceException;
 import com.aman.springverse.exception.ResourceNotFoundException;
 import com.aman.springverse.repository.StudentRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StudentService {
     private final StudentRepository studentRepository;
-    private final StudentMapper studentMapper;
+    private final ModelMapper modelMapper;
 
-    public StudentService(StudentRepository studentRepository,
-                          StudentMapper studentMapper) {
+    public StudentService(
+            StudentRepository studentRepository,
+            ModelMapper modelMapper
+    ) {
         this.studentRepository = studentRepository;
-        this.studentMapper = studentMapper;
+        this.modelMapper = modelMapper;
     }
 
     public CreateResponseDto createStudent(CreateRequestDto createRequestDto) {
@@ -27,23 +28,24 @@ public class StudentService {
         if (isEmailExists) {
             throw new DuplicateResourceException("Email already exists");
         }
-        Student needToSave = studentMapper.mapToStudentEntity(createRequestDto);
+        Student needToSave = modelMapper.map(createRequestDto, Student.class);
+
         Student savedStudent = studentRepository.save(needToSave);
-        return studentMapper.mapToCreateResponseDto(savedStudent);
+        return modelMapper.map(savedStudent, CreateResponseDto.class);
     }
 
     public List<StudentDto> getAllStudents() {
-        List<Student> lists = studentRepository.findAll();
-        return lists
+        List<Student> students = studentRepository.findAll();
+        return students
                 .stream()
-                .map(studentMapper::mapToStudentDto)
+                .map((student) -> modelMapper.map(student, StudentDto.class))
                 .toList();
     }
 
     public StudentDto getStudentById(Long id) {
-        Optional<Student> student = studentRepository.findById(id);
-        if (!student.isPresent()) throw new ResourceNotFoundException("Student not found");
-        return studentMapper.mapToStudentDto(studentRepository.findById(id).get());
+        Student student = studentRepository
+                .findById(id).orElseThrow(() -> new ResourceNotFoundException("Student not found"));
+        return modelMapper.map(student, StudentDto.class);
     }
 
     public UpdateStudentResponseDto updateStudent(
@@ -57,7 +59,7 @@ public class StudentService {
         student.setAge(updateRequestDto.getAge());
         Student savedStudent = studentRepository.save(student);
 
-        return studentMapper.mapToStudentUpdateResponseDto(savedStudent);
+        return modelMapper.map(savedStudent, UpdateStudentResponseDto.class);
     }
 
     public StudentDto deleteStudent(Long id) {
@@ -65,6 +67,6 @@ public class StudentService {
                 .findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Student not found with id: " + id));
         studentRepository.deleteById(id);
-        return studentMapper.mapToStudentDto(existingStudent);
+        return modelMapper.map(existingStudent, StudentDto.class);
     }
 }
