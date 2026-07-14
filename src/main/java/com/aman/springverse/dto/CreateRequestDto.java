@@ -1,6 +1,6 @@
-package com.aman.springverse.modules.students.dto;
+package com.aman.springverse.dto;
 
-import com.aman.springverse.modules.students.entity.CourseEnum;
+import com.aman.springverse.entity.students.CourseEnum;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

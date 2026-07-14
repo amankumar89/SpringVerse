@@ -1,4 +1,4 @@
-package com.aman.springverse.modules.students.entity;
+package com.aman.springverse.entity.students;
 
 import lombok.Getter;
 
