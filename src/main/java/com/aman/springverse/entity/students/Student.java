@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Table(name = "students", uniqueConstraints = {
         @UniqueConstraint(name = "uk_email", columnNames = "email")
 })
-public class Students {
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

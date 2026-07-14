@@ -3,6 +3,7 @@ package com.aman.springverse.dto.mapper;
 import com.aman.springverse.dto.CreateRequestDto;
 import com.aman.springverse.dto.CreateResponseDto;
 import com.aman.springverse.dto.StudentDto;
+import com.aman.springverse.dto.UpdateStudentResponseDto;
 import com.aman.springverse.entity.students.Student;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -46,6 +47,25 @@ public class StudentMapper {
                 .course(savedStudent.getCourse())
                 .age(savedStudent.getAge())
                 .createdAt(savedStudent.getCreatedAt())
+                .build();
+    }
+
+//    public Student mapTUpdateStudentEntity(UpdateStudentRequestDto updateRequestDto) {
+//        return Student
+//                .builder()
+//                .name(updateRequestDto.getName())
+//                .email(updateRequestDto.getEmail())
+//                .age(updateRequestDto.getAge())
+//                .build();
+//    }
+
+    public UpdateStudentResponseDto mapToStudentUpdateResponseDto(Student savedStudent) {
+        return UpdateStudentResponseDto
+                .builder()
+                .id(savedStudent.getId())
+                .name(savedStudent.getName())
+                .email(savedStudent.getEmail())
+                .updateDate(savedStudent.getUpdatedAt())
                 .build();
     }
 }
