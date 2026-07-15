@@ -1,11 +1,16 @@
 package com.aman.springverse.service;
 
-import com.aman.springverse.dto.*;
+import com.aman.springverse.dto.PageResponseDto;
+import com.aman.springverse.dto.students.*;
 import com.aman.springverse.entity.students.Student;
 import com.aman.springverse.exception.DuplicateResourceException;
 import com.aman.springverse.exception.ResourceNotFoundException;
 import com.aman.springverse.repository.StudentRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,23 +28,39 @@ public class StudentService {
         this.modelMapper = modelMapper;
     }
 
-    public CreateResponseDto createStudent(CreateRequestDto createRequestDto) {
-        boolean isEmailExists = studentRepository.existsByEmail(createRequestDto.getEmail());
+    public CreateStudentResponseDto createStudent(CreateStudentRequestDto createStudentRequestDto) {
+        boolean isEmailExists = studentRepository.existsByEmail(createStudentRequestDto.getEmail());
         if (isEmailExists) {
             throw new DuplicateResourceException("Email already exists");
         }
-        Student needToSave = modelMapper.map(createRequestDto, Student.class);
+        Student needToSave = modelMapper.map(createStudentRequestDto, Student.class);
 
         Student savedStudent = studentRepository.save(needToSave);
-        return modelMapper.map(savedStudent, CreateResponseDto.class);
+        return modelMapper.map(savedStudent, CreateStudentResponseDto.class);
     }
 
-    public List<StudentDto> getAllStudents() {
-        List<Student> students = studentRepository.findAll();
-        return students
+    public PageResponseDto<StudentDto> getAllStudents(
+            int page, int size, String sortBy, String orderBy
+    ) {
+        Sort sort = orderBy.equalsIgnoreCase("desc")
+                ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
+
+        Pageable pageable = PageRequest.of(page, size, sort);
+        Page<Student> studentPage = studentRepository.findAll(pageable);
+
+        List<StudentDto> studentsList = studentPage
+                .getContent()
                 .stream()
-                .map((student) -> modelMapper.map(student, StudentDto.class))
+                .map((student -> modelMapper.map(student, StudentDto.class)))
                 .toList();
+
+        return PageResponseDto
+                .<StudentDto>builder()
+                .content(studentsList)
+                .size(studentPage.getSize())
+                .total(studentPage.getTotalElements())
+                .totalPages(studentPage.getTotalPages())
+                .build();
     }
 
     public StudentDto getStudentById(Long id) {

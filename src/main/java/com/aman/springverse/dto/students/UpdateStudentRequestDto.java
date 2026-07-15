@@ -1,4 +1,4 @@
-package com.aman.springverse.dto;
+package com.aman.springverse.dto.students;
 
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;

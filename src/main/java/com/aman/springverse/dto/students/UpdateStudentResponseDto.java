@@ -1,6 +1,5 @@
-package com.aman.springverse.dto;
+package com.aman.springverse.dto.students;
 
-import com.aman.springverse.entity.students.CourseEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,12 +11,10 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentDto {
+public class UpdateStudentResponseDto {
     private Long id;
     private String name;
     private String email;
-    private CourseEnum course;
     private int age;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private LocalDateTime updateDate;
 }

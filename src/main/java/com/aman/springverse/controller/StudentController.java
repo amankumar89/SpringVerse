@@ -1,12 +1,11 @@
 package com.aman.springverse.controller;
 
-import com.aman.springverse.dto.*;
+import com.aman.springverse.dto.PageResponseDto;
+import com.aman.springverse.dto.students.*;
 import com.aman.springverse.service.StudentService;
 import com.aman.springverse.utils.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/students")
@@ -18,20 +17,25 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<CreateResponseDto>> createStudent(
-            @RequestBody CreateRequestDto createRequestDto
+    public ResponseEntity<ApiResponse<CreateStudentResponseDto>> createStudent(
+            @RequestBody CreateStudentRequestDto createStudentRequestDto
     ) {
         return ApiResponse.created(
                 "Student created successfully",
-                studentService.createStudent(createRequestDto)
+                studentService.createStudent(createStudentRequestDto)
         );
     }
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<StudentDto>>> getStudent() {
+    public ResponseEntity<ApiResponse<PageResponseDto<StudentDto>>> getAllStudent(
+            @RequestParam(defaultValue = "0", required = false) int page,
+            @RequestParam(defaultValue = "10", required = false) int size,
+            @RequestParam(defaultValue = "createdAt", required = false) String sortBy,
+            @RequestParam(defaultValue = "desc", required = false) String orderBy
+    ) {
         return ApiResponse.ok(
                 "All Students fetched successfully",
-                studentService.getAllStudents()
+                studentService.getAllStudents(page, size, sortBy, orderBy)
         );
     }
 

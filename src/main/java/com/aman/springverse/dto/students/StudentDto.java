@@ -1,4 +1,4 @@
-package com.aman.springverse.dto;
+package com.aman.springverse.dto.students;
 
 import com.aman.springverse.entity.students.CourseEnum;
 import lombok.AllArgsConstructor;
@@ -12,12 +12,12 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateResponseDto {
+public class StudentDto {
     private Long id;
     private String name;
     private String email;
     private CourseEnum course;
     private int age;
     private LocalDateTime createdAt;
-//    private LocalDateTime updatedAt;
+    private LocalDateTime updatedAt;
 }

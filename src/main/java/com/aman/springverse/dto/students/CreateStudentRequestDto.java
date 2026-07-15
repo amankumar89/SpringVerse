@@ -1,4 +1,4 @@
-package com.aman.springverse.dto;
+package com.aman.springverse.dto.students;
 
 import com.aman.springverse.entity.students.CourseEnum;
 import jakarta.validation.constraints.*;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateRequestDto {
+public class CreateStudentRequestDto {
     @NotBlank(message = "Name is required")
     @Size(min = 2, max = 100, message = "Name must be between 2 and 100 characters")
     private String name;
