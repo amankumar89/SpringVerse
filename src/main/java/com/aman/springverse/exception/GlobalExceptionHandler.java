@@ -2,8 +2,12 @@ package com.aman.springverse.exception;
 
 import com.aman.springverse.utils.ApiResponse;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -20,6 +24,21 @@ public class GlobalExceptionHandler {
         return ApiResponse.notFound(
                 ex.getMessage() != null ? ex.getMessage() : "Resource not found"
         );
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ApiResponse<Void>> handleMethodArgumentNotValidException(
+            MethodArgumentNotValidException ex
+    ) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult()
+                .getFieldErrors()
+                .forEach(error -> errors.put(error.getField(), error.getDefaultMessage()));
+
+        Map.Entry<String, String> firstEntry = errors.entrySet().iterator().next();
+        String firstValue = firstEntry.getValue();
+
+        return ApiResponse.badRequest(firstValue != null ? firstValue : ex.getMessage());
     }
 
     @ExceptionHandler(RuntimeException.class)
