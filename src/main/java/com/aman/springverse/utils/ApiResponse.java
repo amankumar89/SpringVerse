@@ -60,6 +60,10 @@ public class ApiResponse<T> {
         return build(HttpStatus.NOT_FOUND, false, message, null);
     }
 
+    public static <T> ResponseEntity<ApiResponse<T>> noContent(String message) {
+        return build(HttpStatus.NO_CONTENT, true, message, null);
+    }
+
     public static <T> ResponseEntity<ApiResponse<T>> conflict(String message) {
         return build(HttpStatus.CONFLICT, false, message, null);
     }
