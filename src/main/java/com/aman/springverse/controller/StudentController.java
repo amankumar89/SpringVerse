@@ -55,7 +55,7 @@ public class StudentController {
             @RequestBody UpdateStudentRequestDto updateRequestDto
     ) {
         return ApiResponse.ok(
-                "Student created successfully",
+                "Student updated successfully",
                 studentService.updateStudent(id, updateRequestDto)
         );
     }
