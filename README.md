@@ -43,42 +43,6 @@ Whether you're a student, beginner, or preparing for backend interviews, SpringV
 
 # 🏗 Project Structure
 
-```text
-src
-└── main
-    └── java
-        └── com.aman.springverse
-            │
-            ├── config
-            ├── exception
-            ├── utils
-            │
-            ├── modules
-            │   ├── blogs
-            │   ├── contacts
-            │   ├── employees
-            │   ├── library
-            │   ├── movies
-            │   ├── products
-            │   ├── students
-            │   └── todos
-            │
-            └── SpringVerseApplication.java
-```
-
-Each module follows a clean layered architecture:
-
-```text
-module
-│
-├── controller
-├── service
-├── repository
-├── entity
-├── dto
-└── mapper
-```
-
 ---
 
 # 🚀 Tech Stack
