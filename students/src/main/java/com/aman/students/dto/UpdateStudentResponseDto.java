@@ -1,4 +1,4 @@
-package com.aman.springverse.dto.students;
+package com.aman.students.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.aman.springverse.dto.employees;
+package com.aman.employees.dto;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;

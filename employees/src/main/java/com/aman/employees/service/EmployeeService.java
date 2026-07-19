@@ -1,10 +1,11 @@
-package com.aman.springverse.service;
+package com.aman.employees.service;
 
-import com.aman.springverse.dto.PageResponseDto;
-import com.aman.springverse.entity.employees.Employee;
-import com.aman.springverse.exception.DuplicateResourceException;
-import com.aman.springverse.exception.ResourceNotFoundException;
-import com.aman.springverse.repository.EmployeeRepository;
+
+import com.aman.employees.dto.*;
+import com.aman.employees.entity.Employee;
+import com.aman.employees.exception.DuplicateResourceException;
+import com.aman.employees.exception.ResourceNotFoundException;
+import com.aman.employees.repository.EmployeeRepository;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -58,7 +59,7 @@ public class EmployeeService {
 
         return PageResponseDto
                 .<EmployeeDto>builder()
-                .content(employeeLists)
+                .employees(employeeLists)
                 .size(employeePage.getSize())
                 .total(employeePage.getTotalElements())
                 .totalPages(employeePage.getTotalPages())

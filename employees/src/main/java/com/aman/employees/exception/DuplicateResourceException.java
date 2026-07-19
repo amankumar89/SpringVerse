@@ -1,4 +1,4 @@
-package com.aman.springverse.exception;
+package com.aman.employees.exception;
 
 public class DuplicateResourceException extends RuntimeException {
     public DuplicateResourceException(String message) {

@@ -1,4 +1,4 @@
-package com.aman.springverse.entity.students;
+package com.aman.students.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

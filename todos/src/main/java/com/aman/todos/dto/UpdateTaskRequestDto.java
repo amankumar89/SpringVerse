@@ -1,6 +1,6 @@
-package com.aman.springverse.dto.tasks;
+package com.aman.todos.dto;
 
-import com.aman.springverse.entity.tasks.Status;
+import com.aman.todos.entity.Status;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

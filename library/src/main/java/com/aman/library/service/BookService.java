@@ -1,11 +1,12 @@
-package com.aman.springverse.service;
+package com.aman.library.service;
 
-import com.aman.springverse.entity.books.Author;
-import com.aman.springverse.entity.books.Book;
-import com.aman.springverse.exception.DuplicateResourceException;
-import com.aman.springverse.exception.ResourceNotFoundException;
-import com.aman.springverse.repository.AuthorRepository;
-import com.aman.springverse.repository.BookRepository;
+import com.aman.library.dto.*;
+import com.aman.library.entity.Author;
+import com.aman.library.entity.Book;
+import com.aman.library.exception.DuplicateResourceException;
+import com.aman.library.exception.ResourceNotFoundException;
+import com.aman.library.repository.AuthorRepository;
+import com.aman.library.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

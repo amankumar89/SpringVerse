@@ -1,4 +1,4 @@
-package com.aman.springverse.dto;
+package com.aman.products.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

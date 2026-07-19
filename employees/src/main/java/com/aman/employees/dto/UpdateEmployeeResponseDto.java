@@ -1,4 +1,4 @@
-package com.aman.springverse.dto.employees;
+package com.aman.employees.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

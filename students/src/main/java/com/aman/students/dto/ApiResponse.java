@@ -1,4 +1,4 @@
-package com.aman.springverse.utils;
+package com.aman.students.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

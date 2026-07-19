@@ -1,4 +1,4 @@
-package com.aman.springverse.entity.books;
+package com.aman.library.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

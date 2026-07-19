@@ -1,8 +1,10 @@
-package com.aman.springverse.repository;
+package com.aman.students.repository;
 
-import com.aman.springverse.entity.students.Student;
+import com.aman.students.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
     boolean existsByEmail(String email);
 }

@@ -1,4 +1,4 @@
-package com.aman.springverse.exception;
+package com.aman.students.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException(String message) {

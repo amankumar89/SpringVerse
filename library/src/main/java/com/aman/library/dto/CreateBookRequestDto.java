@@ -1,6 +1,6 @@
-package com.aman.springverse.dto.books;
+package com.aman.library.dto;
 
-import com.aman.springverse.entity.books.Category;
+import com.aman.library.entity.Category;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
