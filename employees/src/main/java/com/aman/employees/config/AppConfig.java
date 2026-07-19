@@ -1,4 +1,4 @@
-package com.aman.springverse.config;
+package com.aman.employees.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

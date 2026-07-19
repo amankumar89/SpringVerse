@@ -1,19 +1,16 @@
-package com.aman.springverse.controller;
+package com.aman.employees.controller;
 
-import com.aman.springverse.dto.PageResponseDto;
-import com.aman.springverse.service.EmployeeService;
-import com.aman.springverse.utils.ApiResponse;
+import com.aman.employees.dto.*;
+import com.aman.employees.service.EmployeeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/employees")
+@RequiredArgsConstructor
 public class EmployeeController {
     private final EmployeeService employeeService;
-
-    public EmployeeController(EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
 
     @PostMapping
     public ResponseEntity<ApiResponse<CreateEmployeeResponseDto>> createEmployee(@RequestBody CreateEmployeeRequestDto employeeBodyDto) {

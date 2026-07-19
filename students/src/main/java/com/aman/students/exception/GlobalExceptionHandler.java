@@ -1,6 +1,6 @@
-package com.aman.springverse.exception;
+package com.aman.students.exception;
 
-import com.aman.springverse.utils.ApiResponse;
+import com.aman.students.dto.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;

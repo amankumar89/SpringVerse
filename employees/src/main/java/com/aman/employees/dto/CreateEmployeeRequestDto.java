@@ -1,6 +1,6 @@
-package com.aman.springverse.dto.employees;
+package com.aman.employees.dto;
 
-import com.aman.springverse.entity.employees.Department;
+import com.aman.employees.entity.Department;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

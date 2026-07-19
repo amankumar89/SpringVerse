@@ -1,4 +1,4 @@
-package com.aman.springverse.entity.tasks;
+package com.aman.todos.entity;
 
 public enum Priority {
     LOW,

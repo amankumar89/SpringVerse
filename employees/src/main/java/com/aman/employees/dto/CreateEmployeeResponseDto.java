@@ -1,6 +1,6 @@
-package com.aman.springverse.dto.employees;
+package com.aman.employees.dto;
 
-import com.aman.springverse.entity.employees.Department;
+import com.aman.employees.entity.Department;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,9 +1,7 @@
-package com.aman.springverse.controller;
+package com.aman.students.controller;
 
-import com.aman.springverse.dto.PageResponseDto;
-import com.aman.springverse.dto.students.*;
-import com.aman.springverse.service.StudentService;
-import com.aman.springverse.utils.ApiResponse;
+import com.aman.students.dto.*;
+import com.aman.students.service.StudentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

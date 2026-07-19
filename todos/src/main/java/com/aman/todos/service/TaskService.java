@@ -1,10 +1,12 @@
-package com.aman.springverse.service;
+package com.aman.todos.service;
 
-import com.aman.springverse.entity.tasks.Status;
-import com.aman.springverse.entity.tasks.Task;
-import com.aman.springverse.exception.DuplicateResourceException;
-import com.aman.springverse.exception.ResourceNotFoundException;
-import com.aman.springverse.repository.TaskRepository;
+
+import com.aman.todos.dto.*;
+import com.aman.todos.entity.Status;
+import com.aman.todos.entity.Task;
+import com.aman.todos.exception.DuplicateResourceException;
+import com.aman.todos.exception.ResourceNotFoundException;
+import com.aman.todos.repository.TaskRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

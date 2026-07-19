@@ -1,10 +1,12 @@
-package com.aman.springverse.repository;
+package com.aman.library.repository;
 
-import com.aman.springverse.entity.books.Author;
+import com.aman.library.entity.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
     Optional<Author> findByEmail(String email);
 

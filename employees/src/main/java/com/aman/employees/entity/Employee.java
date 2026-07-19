@@ -1,4 +1,4 @@
-package com.aman.springverse.entity.employees;
+package com.aman.employees.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

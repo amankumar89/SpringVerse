@@ -1,11 +1,10 @@
-package com.aman.springverse.service;
+package com.aman.students.service;
 
-import com.aman.springverse.dto.PageResponseDto;
-import com.aman.springverse.dto.students.*;
-import com.aman.springverse.entity.students.Student;
-import com.aman.springverse.exception.DuplicateResourceException;
-import com.aman.springverse.exception.ResourceNotFoundException;
-import com.aman.springverse.repository.StudentRepository;
+import com.aman.students.dto.*;
+import com.aman.students.entity.Student;
+import com.aman.students.exception.DuplicateResourceException;
+import com.aman.students.exception.ResourceNotFoundException;
+import com.aman.students.repository.StudentRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -56,7 +55,7 @@ public class StudentService {
 
         return PageResponseDto
                 .<StudentDto>builder()
-                .content(studentsList)
+                .students(studentsList)
                 .size(studentPage.getSize())
                 .total(studentPage.getTotalElements())
                 .totalPages(studentPage.getTotalPages())

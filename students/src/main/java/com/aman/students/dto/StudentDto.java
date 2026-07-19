@@ -1,6 +1,6 @@
-package com.aman.springverse.dto.students;
+package com.aman.students.dto;
 
-import com.aman.springverse.entity.students.CourseEnum;
+import com.aman.students.entity.CourseEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
