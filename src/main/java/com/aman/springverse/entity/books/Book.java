@@ -1,12 +1,15 @@
 package com.aman.springverse.entity.books;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity(name = "books")
+@Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "authors")
 public class Book {
 
     @Id
